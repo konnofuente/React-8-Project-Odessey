@@ -1,5 +1,6 @@
 import './App.css';
 import { useState } from 'react'
+import CardGame from './cardGame';
 
 
 
@@ -15,17 +16,39 @@ for (let index = 0; index <= 20; index++) {
 
 function App() {
 
+  const [items , setItems] =useState([...initialItems])
 
+  function handleAddItem(item){
+    setItems((items)=> [...items , item])
+  }
+
+  function handleDelete(id){
+        setItems((items)=> 
+          items.filter((item)=>item.id !== id)
+        )
+  }
+
+function toggleCheckBox(id){
+    setItems((items) => 
+        items.map((item) => 
+            item.id === id ? {...item, packed: !item.packed} : item
+        )
+    );
+}
+
+  
+// const updateArray = deleteArray.map((book)=> {
+//   book.id === 1? {...book , pages:112} : book
+// })
 
   return (
     <>
       <Logo />
-      <Form />
+      <Form onAddItems={handleAddItem} />
 
-      <PackingList />
+      <PackingList items={items} onDeleteItem={handleDelete}  onToggleCheckBox = {toggleCheckBox}/>
 
-      <Stats />
-
+      <Stats items={items} />
     </>
 
   );
@@ -43,7 +66,7 @@ function Logo() {
   )
 }
 
-function Form() {
+function Form({onAddItems}) {
 
   const [description, setDescription] = useState("");
   const [quantity, setQuentity] = useState(0);
@@ -58,10 +81,13 @@ function Form() {
     console.log(e)
     console.log(quantity)
     console.log(description)
+    const newItem ={id: Date.now() , description , quantity , packed: false}
+    onAddItems(newItem)
 
-   initialItems.push({id:initialItems.length +1 , description: description , quantity : quantity ,packed:false})
-    
   }
+
+
+
   return (
     <form className='add-form' onSubmit={handleForm}>
       <h3>
@@ -105,43 +131,65 @@ function Form() {
   )
 }
 
-function PackingList() {
+function PackingList( {items ,onDeleteItem ,onToggleCheckBox}) {
+
+  // const [sortBy , setSortBy] = setState('input')
   return (
     <div className='list' >
 
       <ul >
         {
 
-          initialItems.map((item) => (
-            <Item item={item} key={item.id} />
+          items.map((item) => (
+            <Item item={item} key={item.id} onDeleteItem={onDeleteItem}  onToggleCheckBox={onToggleCheckBox} />
           ))
         }
       </ul>
+
+
+      <div className='actions'>
+        <select>
+          <option value="input">sort by input </option>
+          <option value="description">sort by input </option>
+          <option value="packed">sort by packed </option>
+        </select>
+      </div>
     </div>
 
   )
 }
 
-function Item({ item, key }) {
+function Item({ item,onDeleteItem , onToggleCheckBox}) {
 
   return <li>
     {
 
     }
     <input
-      type="checkbox" checked={item.packed} >
+      type="checkbox" 
+      value={item.packed}
+      onChange={()=> onToggleCheckBox(item.id)}
+      >
     </input>
 
-    <span style={item.packed ? { textDecation: 'line-through' } : {}}
+    <span style={item.packed ? { textDecoration: "line-through" } : {}}
     >{`${item.description}, ${item.quantity}`}</span>
+    <button 
+    
+    onClick={()=>onDeleteItem(item.id)}
+    >❌</button>
 
   </li>
 }
 
-function Stats() {
+function Stats({items}) {
+
+  const numItems = items.length
+  const numPacked = items.filter((item) => item.packed === true).length
+
   return (
     <footer className='stats'>
-      <em> you have x item on your list and already packed X (X%)</em>
+      <em> you have {numItems} item on your list and already packed {numPacked} (X%)</em>
     </footer>
   )
 }
