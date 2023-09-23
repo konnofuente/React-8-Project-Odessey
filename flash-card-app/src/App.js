@@ -15,11 +15,13 @@ function App() {
 
   function handlePrevios(){
     // setStep(step-1);
-    setStep(step-1);
+    if (!(step <= 0)) {
+      setStep((s)=> s- 1);
+    };
   }
   
 function handleNext(){
-  step >= messages.length ? setStep(step - (messages.length-1)) : setStep(step+1);
+  step >= messages.length ? setStep((step) => step - (messages.length-1)) : setStep((step)=>step+1);
 
 }
 
