@@ -6,6 +6,7 @@ export default function Form({ onAddItems }) {
     const [description, setDescription] = useState("");
     const [quantity, setQuentity] = useState(0);
     //  const [packed, setPacked] = useState(false);
+    
     function handleForm(e) {
         e.preventDefault();
         if (!description) return;

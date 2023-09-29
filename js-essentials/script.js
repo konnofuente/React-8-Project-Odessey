@@ -199,14 +199,14 @@ deleteArray
 const updateArray = deleteArray.map((book)=> {
   book.id === 1? {...book , pages:112} : book
 })
- updateArray
+ updateArray 
 
 
 
 
-/*
+
 // DEstructuring 
-const books = getBook(2);
+// const books = getBook(2);
 const { title, author, genres } = books;
 // console.log( genres[2]);
 console.log(books)
@@ -272,4 +272,4 @@ function getReviewCount(b){
 }
 
 console.log(getReviewCount(book3))
- */
+ 

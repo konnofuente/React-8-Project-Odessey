@@ -25,11 +25,6 @@ export function PackingList({ items, onDeleteItem, onToggleCheckBox, onClearList
     }
 
 
-
-
-
-
-
     return (
         <div className='list'>
 

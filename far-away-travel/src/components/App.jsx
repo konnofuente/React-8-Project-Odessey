@@ -55,6 +55,7 @@ function App() {
   return (
     <>
       <Logo />
+      
       <Form onAddItems={handleAddItem} />
 
       <PackingList items={items} onDeleteItem={handleDelete} onToggleCheckBox={toggleCheckBox} onClearList={handleClearList} />
