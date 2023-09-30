@@ -1,0 +1,22 @@
+.background {
+    background-color: #ffffff;
+    height: 100vh;
+}
+
+.loadingContainer {
+    width: 100px;
+    margin: auto;
+
+    &.DT, &.TB {
+        padding-top: 300px;
+    }
+
+    &:not(.DT):not(.TB) {
+        padding-top: 40vh;
+    }
+}
+
+
+.circularProgress{
+    color: white;
+}

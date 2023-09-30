@@ -1,0 +1,34 @@
+.keyChange{
+    animation-name: slidein;
+    animation-duration: .8s;
+}
+
+.myDiv {
+    transition: .3s;
+    cursor: pointer;
+    color: white;
+  }
+  
+  .myDiv:hover {
+    color: #b89146;
+  }
+  
+
+@keyframes slidein {
+    from {
+      opacity: 0;
+    }
+  
+    to {
+      opacity: 1;
+    }
+  }
+
+
+
+  @media only screen and (max-width:976px){ 
+    .keyChange{
+      display: none;
+    }
+  }
+  
