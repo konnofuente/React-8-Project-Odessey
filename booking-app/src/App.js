@@ -3,7 +3,8 @@ import './App.css';
 import LoadingScreen from './components/Loading/LoadingScreen';
 import Header from './components/Header/Header';
 import { Routes, Route } from "react-router-dom";
-import Home from './container/Home/Home';
+import Home from './container/Home/Home.jsx';
+import AroundMe from './container/AroundMe/AroundMe';
 import './globalStyles.css'
 
 
@@ -24,6 +25,7 @@ function App() {
           <Header/>
           <Routes>
             <Route path="/" element={<Home />} />
+            <Route path="/AroundMe" element={<AroundMe />} />
             {/* <Route path="/AroundMe" element={<AroundMe />} />
             <Route path="/Search" element={<FindProperty />} />
             <Route path="/text" element={<Test />} /> */}
