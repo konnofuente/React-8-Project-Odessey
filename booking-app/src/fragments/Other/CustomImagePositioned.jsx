@@ -1,5 +1,5 @@
 import React, { useContext } from 'react'
-import { MediaQueryContext } from '../../src/hooks/MediaQueryContext'
+import { MediaQueryContext } from '../../hooks/MediaQueryContext'
 
 
 

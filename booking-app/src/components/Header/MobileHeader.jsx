@@ -38,7 +38,6 @@ function MobileHeader({scroll}){
                     <NavButton text='Home'/>
                     <NavButton text='Around me' link='/AroundMe'/>
                     <NavButton text='Search' link='/Search'/>
-                    <NavButton text='ABOUT ME' link='/Contact'/>
                     </div>
                 </div>
         </Drawer>

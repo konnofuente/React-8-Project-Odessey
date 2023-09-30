@@ -5,7 +5,7 @@ import React, { useContext } from "react";
 import MenuItem from "@mui/material/MenuItem";
 import Select from "@mui/material/Select";
 import Button from "../../fragments/Button/Button";
-import CustomImagePositioned from "../../fragments/CustomImagePositioned";
+import CustomImagePositioned from "../../fragments/Other/CustomImagePositioned";
 import room1 from "../../assets/images/welcome-section/room1.jpg";
 import room2 from "../../assets/images/welcome-section/room2.jpg";
 import { MediaQueryContext } from "../../hooks/MediaQueryContext";
