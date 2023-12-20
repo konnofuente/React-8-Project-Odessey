@@ -1,6 +1,7 @@
 export {MovieListTile} from './MovieListTile';
-export {MovieListBox} from './MovieListBox';
-export {WatchedListBox} from './WatchedListBox';
 export {WatchedSummary} from './WatchedSummary';
 
 export {WatchedListTile} from './WatchedListTile';
+export {ListBox} from './ListBox';
+export {Star} from './Star';
+export {StarRatings} from './StarRatings';

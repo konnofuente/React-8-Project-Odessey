@@ -10,10 +10,10 @@ export default function App() {
 
   return (
     <>
-      <NavBar >
-      <Logo></Logo>
-    <SearchBar></SearchBar>
-    <NumResult length={movies.length}></NumResult>
+      <NavBar>
+        <Logo></Logo>
+        <SearchBar></SearchBar>
+        <NumResult length={movies.length}></NumResult>
       </NavBar>
 
       <Main />

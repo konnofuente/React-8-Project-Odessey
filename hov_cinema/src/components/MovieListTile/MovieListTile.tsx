@@ -4,12 +4,14 @@ import styles from './MovieListTile.css';
 import { Movie } from '../../types/Movies';
 
 type MovieListTileProps={
-  movie:Movie
+  movies:Movie[]
 }
 
 
-export function MovieListTile({movie}:MovieListTileProps) {
+export function MovieListTile({movies}:MovieListTileProps) {
   return (
+    <ul className="list">
+        {movies?.map((movie) => (
     <li key={movie.imdbID}>
     <img src={movie.Poster} alt={`${movie.Title} poster`} />
     <h3>{movie.Title}</h3>
@@ -20,5 +22,7 @@ export function MovieListTile({movie}:MovieListTileProps) {
       </p>
     </div>
   </li>
+        ))}
+      </ul>
   );
 }
