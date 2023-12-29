@@ -1,35 +1,28 @@
-import React, { useState } from "react";
-import { tempMovieData, tempWatchedData } from "../../types/Movies";
-
-import styles from "./Main.css";
-import { average } from "../../utils/Average";
-import {
-  ListBox,
-  MovieListTile,
-  StarRatings,
-  WatchedSummary,
-} from "../../components";
-import { WatchedList } from "../../components/WatchedList";
+import React, {useState} from "react";
+import {tempWatchedData} from "../../types/Movies";
+import {ListBox, MovieListTile, WatchedSummary,} from "../../components";
+import {WatchedList} from "../../components/WatchedList";
+import {useMovie} from "../../hooks/moviehook";
 
 export interface MainProps {
-  prop?: string;
+    prop?: string;
 }
 
-export function Main({ prop = "default value" }: MainProps) {
-  const [movies, setMovies] = useState(tempMovieData);
-  const [watched, setWatched] = useState(tempWatchedData);
+export function Main({prop = "default value"}: MainProps) {
+    const movies = useMovie()
+    // const [movies, setMovies] = useState(tempMovieData);
+    const [watched, setWatched] = useState(tempWatchedData);
 
-  return (
-    <main className="main">
-      <ListBox>
-        <MovieListTile movies={movies}></MovieListTile>
-        <StarRatings></StarRatings>
-      </ListBox>
-      
-      <ListBox>
-        <WatchedSummary watched={watched}></WatchedSummary>
-        <WatchedList watched={watched}></WatchedList>
-      </ListBox>
-    </main>
-  );
+    return (
+        <main className="main">
+            <ListBox>
+                <MovieListTile movies={movies}></MovieListTile>
+            </ListBox>
+
+            <ListBox>
+                <WatchedSummary watched={watched}></WatchedSummary>
+                <WatchedList watched={watched}></WatchedList>
+            </ListBox>
+        </main>
+    );
 }
