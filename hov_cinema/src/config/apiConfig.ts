@@ -3,6 +3,6 @@ export const API_CONFIG = {
     apiKey: "6ad9df21",
     endPoints: {
         searchMovie: (searchTerm: string) => `${API_CONFIG.baseUrl}?apikey=${API_CONFIG.apiKey}&s=${searchTerm}`,
-        getMovieById: (id: string) => `?apikey=${API_CONFIG.apiKey}&i=${id}`,
+        getMovieById: (id: string) => `${API_CONFIG.baseUrl}?apikey=${API_CONFIG.apiKey}&i=${id}`,
     }
 }

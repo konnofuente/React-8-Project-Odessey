@@ -5,15 +5,14 @@ import {Main, NavBar} from "./containers";
 import {useMovie} from "./hooks/moviehook";
 
 export default function App() {
-    const movies = useMovie()
+    const {movies, isLoading} = useMovie()
 
     return (
-        <>
-            <NavBar>
-                <Logo></Logo>
-                <SearchBar></SearchBar>
-                <NumResult length={movies.length}></NumResult>
-            </NavBar>
+        <><NavBar>
+            <Logo></Logo>
+            <SearchBar></SearchBar>
+            <NumResult length={movies.length}></NumResult>
+        </NavBar>
 
             <Main/>
         </>
