@@ -1,24 +1,24 @@
 import React, {useState} from "react";
-import {tempWatchedData} from "../../types/Movies";
+import {Movie, tempWatchedData} from "../../types/Movies";
 import {ErrorMessage, ListBox, Loader, MovieListTile, WatchedSummary,} from "../../components";
 import {WatchedList} from "../../components/WatchedList";
-import {useMovie} from "../../hooks/moviehook";
 
 export interface MainProps {
     prop?: string;
+    movies: Movie[];
+    isLoading: Boolean;
+    error: Boolean;
 }
 
-export function Main({prop = "default value"}: MainProps) {
-    const {movies, isLoading, error} = useMovie()
-    // const [movies, setMovies] = useState(tempMovieData);
+export function Main({prop = "default value", movies, isLoading, error}: MainProps) {
+
     const [watched, setWatched] = useState(tempWatchedData);
 
     return (
         <main className="main">
             <ListBox>
                 {isLoading && <Loader></Loader>}
-
-                {error && <ErrorMessage/>}
+                {error && movies.length === 0 && <ErrorMessage/>}
                 {!error && !isLoading &&
                     <MovieListTile movies={movies}></MovieListTile>
                 }

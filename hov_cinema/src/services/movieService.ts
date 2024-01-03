@@ -7,7 +7,10 @@ interface ApiResponse {
     Search: Movie[];
 }
 
-export async function fetchMovie(): Promise<Movie[]> {
-    const response = await api.get<ApiResponse>(API_CONFIG.endPoints.searchMovie('all'));
+export async function fetchMovie(searchTerm: string): Promise<Movie[]> {
+    if (searchTerm == '') {
+        searchTerm = 'all';
+    }
+    const response = await api.get<ApiResponse>(API_CONFIG.endPoints.searchMovie(searchTerm.toString()));
     return response.Search;
 }

@@ -7,14 +7,17 @@ export const useMovie = () => {
     const [movies, setMovies] = useState<Movie[]>([]);
     const [isLoading, setIsLoading] = useState<boolean>(false)
     const [error, setError] = useState<Boolean>(false)
+    const [query, setQuery] = useState<string>('')
 
     useEffect(function () {
 
         const getMovies = async () => {
             try {
+                // console.log(query) TODO remove this later
+                
                 setIsLoading(true)
                 let result: Movie[]
-                result = await fetchMovie()
+                result = await fetchMovie(query)
                 setMovies(result)
 
             } catch (e) {
@@ -26,8 +29,8 @@ export const useMovie = () => {
             }
         }
         getMovies()
-    }, []);
+    }, [query]);
 
-    return {movies, isLoading, error};
+    return {movies, isLoading, error, query, setQuery};
 
 }

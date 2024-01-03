@@ -1,15 +1,24 @@
-import React, { useState } from "react";
+import React from "react";
 
-export function SearchBar(){
-    const [query, setQuery] = useState("");
+export interface SearchBarProps {
+    query: string;
+    setQuery: React.Dispatch<React.SetStateAction<string>>
+}
 
-    return(
+export function SearchBar({query, setQuery}: SearchBarProps) {
+    // const [query, setQuery] = useState("");
+    // @ts-ignore
+    // const {setQuery, query} = useMovie()
+
+    return (
         <input
-        className="search"
-        type="text"
-        placeholder="Search movies..."
-        value={query}
-        onChange={(e) => setQuery(e.target.value)}
-      />
+            className="search"
+            type="text"
+            placeholder="Search movies..."
+            value={query}
+            onChange={(e) => {
+                setQuery(e.target.value.trim())
+            }}
+        />
     )
 }

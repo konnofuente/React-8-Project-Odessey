@@ -5,16 +5,16 @@ import {Main, NavBar} from "./containers";
 import {useMovie} from "./hooks/moviehook";
 
 export default function App() {
-    const {movies, isLoading} = useMovie()
+    const {movies, isLoading, query, error, setQuery} = useMovie()
 
     return (
         <><NavBar>
             <Logo></Logo>
-            <SearchBar></SearchBar>
-            <NumResult length={movies.length}></NumResult>
+            <SearchBar query={query} setQuery={setQuery}></SearchBar>
+            <NumResult length={movies?.length}></NumResult>
         </NavBar>
 
-            <Main/>
+            <Main movies={movies} isLoading={isLoading} error={error}/>
         </>
     );
 }
