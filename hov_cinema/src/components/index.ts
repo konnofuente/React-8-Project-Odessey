@@ -7,3 +7,4 @@ export {Star} from './Star';
 export {StarRatings} from './StarRatings';
 export {Loader} from './Loader';
 export {ErrorMessage} from './ErrorMessage';
+export {MovieDetails} from './MovieDetails';

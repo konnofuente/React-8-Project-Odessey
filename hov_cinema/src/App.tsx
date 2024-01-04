@@ -7,6 +7,7 @@ import {useMovie} from "./hooks/moviehook";
 export default function App() {
     const {movies, isLoading, query, error, setQuery} = useMovie()
 
+    
     return (
         <><NavBar>
             <Logo></Logo>

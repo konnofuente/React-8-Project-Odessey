@@ -1,0 +1,48 @@
+.MovieDetails {
+
+    .movie-card {
+        width: 100%;
+        max-width: 300px;
+        background: #fff;
+        border-radius: 10px;
+        overflow: hidden;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        margin: 16px;
+        font-family: 'Arial', sans-serif;
+    }
+
+    .movie-poster {
+        width: 100%;
+        height: auto;
+        display: block;
+    }
+
+    .movie-info {
+        padding: 16px;
+    }
+
+    .movie-info h2 {
+        margin: 0;
+        color: #333;
+        font-size: 1.5em;
+    }
+
+    .movie-info p {
+        color: #666;
+        line-height: 1.4;
+        margin: 4px 0;
+    }
+
+    .movie-rating {
+        /* Add styling for the stars */
+    }
+
+    .movie-description {
+        margin-top: 16px;
+        font-style: italic;
+    }
+
+    /* You can add more styles for better presentation */
+
+
+}
