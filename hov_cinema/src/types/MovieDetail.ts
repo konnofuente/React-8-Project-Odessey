@@ -5,5 +5,6 @@ export interface MovieDetail extends Movie {
     Actor: String;
     Runtime: String;
     Genre: String;
+    Plot: String
 
 }

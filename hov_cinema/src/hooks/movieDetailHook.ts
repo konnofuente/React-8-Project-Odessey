@@ -29,8 +29,8 @@ export const useMovieDetail = (id: string) => {
 
         getMovieDetail()
 
-    }, []);
+    }, [id]);
 
 
-    return {movieDetail}
+    return {movieDetail, isLoading}
 }

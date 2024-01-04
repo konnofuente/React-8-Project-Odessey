@@ -14,6 +14,11 @@ export function Main({prop = "default value", movies, isLoading, error}: MainPro
 
     const [watched, setWatched] = useState(tempWatchedData);
     const [selectedId, setSelectedId] = useState<string>('')
+
+    function closeMovieDetails() {
+        setSelectedId('')
+    }
+
     return (
         <main className="main">
             <ListBox>
@@ -27,7 +32,7 @@ export function Main({prop = "default value", movies, isLoading, error}: MainPro
 
             <ListBox>
                 {selectedId !== '' ? (
-                    <MovieDetails id={selectedId}/>
+                    <MovieDetails id={selectedId} onCloseMovieDetails={closeMovieDetails}/>
                 ) : (
                     <>
                         <WatchedSummary watched={watched}/>
